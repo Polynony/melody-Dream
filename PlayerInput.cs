@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //这是一个挂在主角上的脚本，主要处理输入并调用相关方法
-public class Player : MonoBehaviour {
+public class PlayerInput : MonoBehaviour {
 	public float speed = 5f;
 	public GameObject Hero;
 
@@ -13,7 +13,6 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Action(){
-
 		if(Input.GetKey(KeyCode.Alpha6)){
 			PlayMusic musicnote = new PlayMusic ();
 			//musicnote.execute (Hero);
@@ -23,8 +22,8 @@ public class Player : MonoBehaviour {
 			Jump jump = new Jump ();
 			//jump.execute (Hero);
 		}
-
 	}
+
 
 	public void MoveKeyboard (){
 		if (Input.GetKey(KeyCode.W)) {

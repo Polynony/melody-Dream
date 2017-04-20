@@ -26,4 +26,20 @@ public class MusicNote : MonoBehaviour {
 		//当乐符碰到怪物时进行碰撞判断并执行减血等功能
 	
 	}
+	public void fly(){
+		//这是乐符实例化之后自动飞向目标的方法,有待改进，需要加上贝塞尔曲线
+		Transform Targetpos;
+		float speed = 5f;
+		float rotatespeed = 10f;//这两个数值只是暂时的
+		Targetpos = GameObject.Find ("目标").GetComponent<Transform> ();
+
+		Vector3 targetpos = Targetpos.position;
+		this.transform.position = Vector3.Lerp (this.transform.position,targetpos,speed * Time.deltaTime);
+
+		Quaternion targetRot = Quaternion.LookRotation (Targetpos.position - this.transform.position);
+
+		this.transform.rotation = Quaternion.Slerp (this.transform.rotation, targetRot, rotatespeed * Time.deltaTime);
+
+	}
+
 }

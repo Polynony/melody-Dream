@@ -11,7 +11,7 @@ public class MusicTool : MonoBehaviour {
 	public double basicHurt;        //基础伤害值
 
 	public void InstantiationNote(){
-		//这是一个实例化乐符的方法，并给乐符的tybes and tones赋值
+		//这是一个实例化乐符的方法，并在乐符飞出之前给乐符的tybes and tones赋值
 	}
 
 	public void OtherPower(){

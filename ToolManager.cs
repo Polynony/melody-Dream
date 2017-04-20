@@ -13,7 +13,7 @@ public class ToolManager : MusicTool {
 	}
 
 	public void SwitchTool(){
-	//这是一个更换武器的方法
+	//这是一个更换乐器的方法
 
 	}
 

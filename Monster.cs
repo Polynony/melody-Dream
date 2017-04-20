@@ -4,13 +4,9 @@ using UnityEngine;
 //这是怪物AI的基类
 public class Monster : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public void patrol(){
+		//怪物日常状态，在固定区域随机移动
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
 }

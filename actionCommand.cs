@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //这是一个继承命令基类的关于动作的命令类
 
-//以下几个对应不同乐器的演奏动作
+//以下几个对应不同乐器的演奏动作，可能有更多
 public class PlayMusic : InputCommand {
 
 	public void execute(GameObject note){
