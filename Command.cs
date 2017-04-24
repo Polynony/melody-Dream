@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//这是一个命令基类
-public class Command : MonoBehaviour{
-
+//这是命令接口，抽象命令
+public interface AttackCommand{ 
+	void AttackAction (GameObject AnyObject);
 }
-public interface InputCommand{
-	void execute (GameObject note);
 
+public interface OtherCommand{
+	void UsualAction (GameObject AnyObject);
 }
+
 	
 
 

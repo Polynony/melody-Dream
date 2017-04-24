@@ -4,6 +4,9 @@ using UnityEngine;
 //这是怪物AI的基类
 public class Monster : MonoBehaviour {
 
+	public float monsterHealth;
+	public float speed;
+
 	public void patrol(){
 		//怪物日常状态，在固定区域随机移动
 	}

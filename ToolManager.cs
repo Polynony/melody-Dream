@@ -4,7 +4,10 @@ using UnityEngine;
 //这是一个管理乐器的类
 public class ToolManager : MusicTool {
 
-	static List<MusicTool> toollist = new List<MusicTool> ();
+	public GameObject musicalInstruments;
+	//这似乎应该用arraylist，待定
+
+	public static List<MusicTool> toollist = new List<MusicTool> ();
 
 	public void Addmanager(){
 		//这是一个添加乐器的方法，当玩家获得乐器时调用这个方法
