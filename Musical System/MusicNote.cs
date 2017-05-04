@@ -9,7 +9,12 @@ public class MusicNote : MonoBehaviour {
 	public enum Accidental{sharp, X, b, bb};//变音记号
 	public enum pf{p, f};//轻重音符号
 	public int n_Type;   //实例化时，乐器的m_type会赋给这个值
-	public int n_Tone;   //实例化时，乐器的m_Tyon会赋给这个值    
+	public int n_Tone;   //实例化时，乐器的m_Tyon会赋给这个值
+
+	public MusicNote(int id,double hurts){
+		ID = id;
+		Hurts = hurts;
+	}
 
 	public void AddAccidental(){
 		//当玩家给乐符添加变音记号时调用此方法
