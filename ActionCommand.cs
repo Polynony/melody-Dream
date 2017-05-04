@@ -7,49 +7,56 @@ using UnityEngine;
 public class PlayWindMusic : IAttackCommand {
 
 	public void AttackAction(GameObject AnyObject1){
-		//note.GetComponent<> (). 这里调用管乐器动作的方法，触发动画;
+		//AnyObject1.GetComponent<脚本名> (). 这里调用管乐器动作的方法，触发动画;
 	}
 }
 public class PlayStringMusic : IAttackCommand{
 	
 	public void AttackAction(GameObject AnyObject1){
-		//note.GetComponent<> (). 这里调用弦乐器动作的方法，触发动画;
+		//AnyObject1.GetComponent<脚本名> (). 这里调用弦乐器动作的方法，触发动画;
 	}
 }
 public class PlayPercussionMusic : IAttackCommand{
 	
 	public void AttackAction(GameObject AnyObject1){
-		//note.GetComponent<> (). 这里调用打击乐器动作的方法，触发动画;
+		//AnyObject1.GetComponent<脚本名> (). 这里调用打击乐器动作的方法，触发动画;
+	}
+}
+
+public class PlayKeyboardMusic : IAttackCommand{
+
+	public void AttackAction(GameObject AnyObject1){
+		//AnyObject1.GetComponent<脚本名> (). 这里调用键盘乐器动作的方法，触发动画;
 	}
 }
 
 public class Jump : IOtherCommand{
 	public void UsualAction(GameObject AnyObject2){
-		//note.GetComponent<> ().jumpcommand() ;跳，如果怪物有跳的动作同样调用这个方法。
+		//AnyObject2.GetComponent<脚本名> ().jumpcommand() ;跳，如果怪物有跳的动作同样调用这个方法。
 	}
 }
 	
 public class Leisurely : IOtherCommand{
 	public void UsualAction (GameObject AnyObject2){
-		//AnyObject2.GetComponent<> ().usual ();
+		//AnyObject2.GetComponent<脚本名> ().usual ();
 	}
 }
 
 
 public class Dash : IAttackCommand{
 	public void AttackAction(GameObject AnyObject1){
-		//monsters.Getcomponent<> ().调用怪物冲撞攻击的方法，触发动画
+		//AnyObject1.Getcomponent<脚本名> ().调用怪物冲撞攻击的方法，触发动画
 	}
 }
 
 public class Bellow : IAttackCommand{
 	public void AttackAction(GameObject AnyObject1){
-		//monsters.Getcomponent<> ().调用怪物吼叫攻击的方法，触发动画
+		//AnyObject1.Getcomponent<脚本名> ().调用怪物吼叫攻击的方法，触发动画
 	}
 }
 
 public class Worry : IAttackCommand{
 	public void AttackAction(GameObject AnyObject1){
-		//monsters.Getcomponent<> ().调用怪物吼叫攻击的方法，触发动画
+		//AnyObject1.Getcomponent<脚本名> ().调用怪物吼叫攻击的方法，触发动画
 	}
 }

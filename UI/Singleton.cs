@@ -4,11 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 /*
- *	
  *  Singleton
  *
  *	by Xuanyi
- *
  */
 
 namespace MoleMole
