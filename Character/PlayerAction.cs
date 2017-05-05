@@ -7,13 +7,13 @@ public class PlayerAction : MonoBehaviour {
 	public GameObject Hero;
 
 	void Update () {
-		playMusicAction ();
+		playMusicAction (Hero);
 		MoveMouse ();
 		MoveKeyboard ();
 	}
 
 	public void playMusicAction(GameObject hero){
-		int type = GetComponentInChildren<MusicTool> ().m_Type;
+		int type = hero.GetComponent<MusicInstruments> ().m_Type;
 		if(Input.GetKey(KeyCode.T)||Input.GetKey(KeyCode.Y)||Input.GetKey(KeyCode.U)||Input.GetKey(KeyCode.I)||Input.GetKey(KeyCode.O)||Input.GetKey(KeyCode.P)){
 		switch(type){
 		case 0:
