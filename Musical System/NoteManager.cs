@@ -10,7 +10,7 @@ public class NoteManager {
 	//这是一个添加音符的方法，当玩家获得音符时调用这个方法
 	public void N_Addmanager(GameObject Notes){
 		int i = Notes.GetComponent<MusicNote> ().ID;
-		if(noteCollection.ContainsValue(Notes) = true){
+		if(noteCollection.ContainsValue(Notes) == true){
 			noteCollection.Add(i, Notes);
 		}
 	}
