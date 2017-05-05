@@ -11,7 +11,7 @@ public class ToolManager {
 	//这是一个添加乐器的方法，当玩家获得乐器时调用这个方法
 	public void T_Addmanager(GameObject tools){
 		string i = tools.GetComponent<MusicInstruments> ().Name;
-		if(InstrumentsCollection.ContainsValue(tools) = true){
+		if(InstrumentsCollection.ContainsValue(tools) == true){
 			InstrumentsCollection.Add(i, tools);
 		}
 
