@@ -9,12 +9,11 @@ public class ToolManager {
 	public static Dictionary<string, GameObject> InstrumentsCollection = new Dictionary<string, GameObject>();
 
 	//这是一个添加乐器的方法，当玩家获得乐器时调用这个方法
-	public void T_Addmanager(GameObject tools){
+	public void T_Add(GameObject tools){
 		string i = tools.GetComponent<MusicInstruments> ().Name;
 		if(InstrumentsCollection.ContainsValue(tools) == true){
 			InstrumentsCollection.Add(i, tools);
 		}
-
 	}
 
 	public void SwitchTool(){
