@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : Unit {
-
+public class MonsterOne : Monster {
+	
 	void Start () {
 		
 	}
+
+	void Update () {
 		
-	void OnCollisionEnter(Collision collision){
-		// 检测碰撞
 	}
 }

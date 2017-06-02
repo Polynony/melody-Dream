@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 //这是一个挂在主角上的脚本，主要处理输入并调用相关方法
-public class PlayerAction : MonoBehaviour {
-	public float speed = 5f;
+public class PlayerAction : Unit {
 	public GameObject Hero;
 
-	void Update () {
+	void Update() {
 		playMusicAction (Hero);
+	}
+
+	void FixedUpdate () {
 		MoveMouse ();
 		MoveKeyboard ();
 	}
@@ -18,19 +20,19 @@ public class PlayerAction : MonoBehaviour {
 		switch(type){
 		case 0:
 			PlayWindMusic musicnote0 = new PlayWindMusic ();
-			//musicnote.AttackAction (Hero);
+			//musicnote0.AttackAction (Hero);
 			break;
 		case 1:
 			PlayStringMusic musicnote1 = new PlayStringMusic ();
-			//musicnote.AttackAction (Hero);
+			//musicnote1.AttackAction (Hero);
 			break;
 		case 2:
 			PlayPercussionMusic musicnote2 = new PlayPercussionMusic ();
-			//musicnote.AttackAction (Hero);
+			//musicnote2.AttackAction (Hero);
 			break;
 		case 3:
 			PlayKeyboardMusic musicnote3 = new PlayKeyboardMusic ();
-			//musicnote.AttackAction (Hero);
+			//musicnote3.AttackAction (Hero);
 			break;
 			//这是发出乐符的动作,
 		    }
@@ -39,16 +41,16 @@ public class PlayerAction : MonoBehaviour {
 
 	public void MoveKeyboard (){
 		if (Input.GetKey (KeyCode.W)) {
-			transform.Translate (Vector3.up * speed * Time.deltaTime, Space.World);
+			transform.Translate (Vector3.up * Speed * Time.deltaTime, Space.World);
 		}
 		if (Input.GetKey (KeyCode.S)) {
-			transform.Translate (Vector3.up * -speed * Time.deltaTime, Space.World);
+			transform.Translate (Vector3.up * -Speed * Time.deltaTime, Space.World);
 		}
 		if (Input.GetKey (KeyCode.A)) {
-			transform.Translate (Vector3.right * -speed * Time.deltaTime, Space.World);
+			transform.Translate (Vector3.right * -Speed * Time.deltaTime, Space.World);
 		}
 		if (Input.GetKey (KeyCode.D)) {
-			transform.Translate (Vector3.right * speed * Time.deltaTime, Space.World);
+			transform.Translate (Vector3.right * Speed * Time.deltaTime, Space.World);
 		}
 		if (Input.GetKey (KeyCode.Space)) {
 			Jump jump = new Jump ();
@@ -65,7 +67,7 @@ public class PlayerAction : MonoBehaviour {
 				if (hitInfo.collider.name == "Plane") {
 					target = hitInfo.point;
 					Vector3 offSet = target - transform.position;
-					transform.Translate (target * speed, Space.Self);
+					transform.Translate (target * Speed, Space.Self);
 				}
 			}
 		}
