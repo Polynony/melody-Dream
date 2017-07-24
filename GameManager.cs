@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 //这是一个管理当前关卡游戏循环的脚本
 public class GameManager : MonoBehaviour {
+	public static List<Monster> monsterArray = new List<Monster> ();
+	private List<GameObject> _monsterArray = new List<GameObject> ();
 
 	void Awake(){
-		Initialize ();
+		_monsterArray.AddRange (GameObject.FindGameObjectsWithTag ("Monster"));
+		for(int i = 0; i < _monsterArray.Count; i++){
+			monsterArray.Add (_monsterArray [i].GetComponent<Monster> ());
+		}
 	}
 
 	void Start () {
-		
-	}
-
-	void Update () {
 		
 	}
 
