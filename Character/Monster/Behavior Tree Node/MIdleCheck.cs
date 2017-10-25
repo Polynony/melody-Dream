@@ -11,7 +11,6 @@ public class MIdleCheck : Conditional {
 		if (FieldOfView.visibletargets.Count <= 0) {
 			return TaskStatus.Success;
 		} else {
-			Debug.Log ("xxoo");
 			return TaskStatus.Failure;
 		}
 	}
