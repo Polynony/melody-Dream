@@ -35,7 +35,7 @@ public class FieldOfView : MonoBehaviour {
 		while (true){
 			yield return new WaitForSeconds (delay);
 			FindVisibleTargets ();
-		}
+	        }
 	}
 
 	void LateUpdate(){

@@ -4,8 +4,6 @@ using UnityEngine;
 using DG.Tweening;
 
 public class MonsterViolin : Monster {
-	private Vector3 next;
-	private Vector3 last;
 
 	void Awake(){
 		_IsAwake = true;
