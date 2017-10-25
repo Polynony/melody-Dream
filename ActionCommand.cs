@@ -16,31 +16,6 @@ public class PlayStringMusic : IAttackCommand{
 		//AnyObject1.GetComponent<脚本名> (). 这里调用弦乐器动作的方法，触发动画;
 	}
 }
-public class PlayPercussionMusic : IAttackCommand{
-	
-	public void AttackAction(GameObject AnyObject1){
-		//AnyObject1.GetComponent<脚本名> (). 这里调用打击乐器动作的方法，触发动画;
-	}
-}
-
-public class PlayKeyboardMusic : IAttackCommand{
-
-	public void AttackAction(GameObject AnyObject1){
-		//AnyObject1.GetComponent<脚本名> (). 这里调用键盘乐器动作的方法，触发动画;
-	}
-}
-
-public class Jump : IOtherCommand{
-	public void UsualAction(GameObject AnyObject2){
-		//AnyObject2.GetComponent<脚本名> ().jumpcommand() ;跳，如果怪物有跳的动作同样调用这个方法。
-	}
-}
-	
-public class Leisurely : IOtherCommand{
-	public void UsualAction (GameObject AnyObject2){
-		//AnyObject2.GetComponent<脚本名> ().usual ();
-	}
-}
 
 
 public class Dash : IAttackCommand{

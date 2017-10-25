@@ -95,7 +95,7 @@ public class AudioManager : MonoBehaviour {
 	/// <param name="audioname"></param>  
 	public void SoundStop(string audioname)   
 	{  
-		GameObject obj=  this.transform.FindChild("audioname").gameObject;  
+		GameObject obj=  this.transform.Find("audioname").gameObject;  
 		if (obj!=null)  
 		{  
 			Destroy(obj);  
