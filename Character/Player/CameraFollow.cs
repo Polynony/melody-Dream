@@ -13,9 +13,10 @@ public class CameraFollow : MonoBehaviour {
 	void Start ()
 	{
 		follow = GameObject.FindGameObjectWithTag ("Player").transform;
+
 	}
 		
-	void FixedUpdate ()
+	void Update ()
 	{
 		targetPosition = follow.position + Vector3.up * distanceUp -follow.forward * distanceAway;
 		transform.position = Vector3.Lerp (transform.position, targetPosition, Time.deltaTime * smooth);

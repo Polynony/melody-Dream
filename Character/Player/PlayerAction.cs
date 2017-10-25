@@ -1,21 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 //这是一个挂在主角上的脚本，主要处理输入并调用相关方法
 public class PlayerAction : Unit {
 	public GameObject Hero;
+	public float roteate;
+	public static GameObject currentTool;
+
+	void Start(){
+		currentTool = GameObject.FindWithTag ("Tool");
+	}
 
 	void Update() {
-		playMusicAction (Hero);
+		//playMusicAction (Hero);
+		MoveKeyboard ();
+		Toolactive ();
+
 	}
 
-	void FixedUpdate () {
-		MoveMouse ();
-		MoveKeyboard ();
-	}
+	//void FixedUpdate () {
+	//	MoveMouse ();
+	//}
 
 	public void playMusicAction(GameObject hero){
-		int type = hero.GetComponent<MusicInstruments> ().m_Type;
+		byte type = currentTool.GetComponent<MusicInstruments> ().m_Type;
 		if(Input.GetKey(KeyCode.T)||Input.GetKey(KeyCode.Y)||Input.GetKey(KeyCode.U)||Input.GetKey(KeyCode.I)||Input.GetKey(KeyCode.O)||Input.GetKey(KeyCode.P)){
 		switch(type){
 		case 0:
@@ -26,36 +35,69 @@ public class PlayerAction : Unit {
 			PlayStringMusic musicnote1 = new PlayStringMusic ();
 			//musicnote1.AttackAction (Hero);
 			break;
-		case 2:
-			PlayPercussionMusic musicnote2 = new PlayPercussionMusic ();
-			//musicnote2.AttackAction (Hero);
-			break;
-		case 3:
-			PlayKeyboardMusic musicnote3 = new PlayKeyboardMusic ();
-			//musicnote3.AttackAction (Hero);
-			break;
 			//这是发出乐符的动作,
 		    }
 		}
 	}
 
 	public void MoveKeyboard (){
+
 		if (Input.GetKey (KeyCode.W)) {
-			transform.Translate (Vector3.up * Speed * Time.deltaTime, Space.World);
+			transform.Translate (Vector3.forward * Speed * Time.deltaTime, Space.Self);
+			GameManager.player_animator.SetBool ("run", true);
 		}
+
+		if (Input.GetKeyUp (KeyCode.W)) {
+			GameManager.player_animator.SetBool ("run", false);
+		}
+
 		if (Input.GetKey (KeyCode.S)) {
-			transform.Translate (Vector3.up * -Speed * Time.deltaTime, Space.World);
+			transform.Translate (Vector3.forward * (-Speed * 0.3f)* Time.deltaTime, Space.Self);
+			GameManager.player_animator.SetBool ("backmove", true);
 		}
+
+		if (Input.GetKeyUp (KeyCode.S)) {
+			GameManager.player_animator.SetBool ("backmove", false);
+		}
+
 		if (Input.GetKey (KeyCode.A)) {
-			transform.Translate (Vector3.right * -Speed * Time.deltaTime, Space.World);
+			if (GameManager.player_animator.GetCurrentAnimatorStateInfo (0).IsName("player_run")) {
+				transform.Rotate (Vector3.up * -roteate * Time.deltaTime, Space.Self);
+				GameManager.player_animator.SetBool ("run", true);
+			}else if(GameManager.player_animator.GetCurrentAnimatorStateInfo (0).IsName("player_idle")){
+				transform.Rotate (Vector3.up * -roteate * Time.deltaTime, Space.Self);
+				GameManager.player_animator.SetFloat ("RL_turn", 2);
+			}
 		}
+
+		if (Input.GetKeyUp (KeyCode.A)) {
+			GameManager.player_animator.SetBool ("run", false);
+			GameManager.player_animator.SetFloat ("RL_turn", 0);
+		}
+
 		if (Input.GetKey (KeyCode.D)) {
-			transform.Translate (Vector3.right * Speed * Time.deltaTime, Space.World);
+			if (GameManager.player_animator.GetCurrentAnimatorStateInfo (0).IsName("player_run")) {
+				transform.Rotate (Vector3.up * roteate * Time.deltaTime, Space.Self);
+				GameManager.player_animator.SetBool ("run", true);
+			}else if(GameManager.player_animator.GetCurrentAnimatorStateInfo (0).IsName("player_idle")){
+				transform.Rotate (Vector3.up * roteate * Time.deltaTime, Space.Self);
+				GameManager.player_animator.SetFloat ("RL_turn", 3);
+			}
 		}
-		if (Input.GetKey (KeyCode.Space)) {
-			Jump jump = new Jump ();
-			//jump.UsualAction (Hero);
+
+		if (Input.GetKeyUp (KeyCode.D)) {
+			GameManager.player_animator.SetBool ("run", false);
+			GameManager.player_animator.SetFloat ("RL_turn", 0);
 		}
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			GameManager.player_animator.SetBool ("jump", true);
+		}
+
+		if (Input.GetKeyUp (KeyCode.Space)) {
+			GameManager.player_animator.SetBool ("jump", false);
+		}
+
 	}
 		
 	public void MoveMouse(){
@@ -73,5 +115,24 @@ public class PlayerAction : Unit {
 		}
 	}
 
+	public void Toolactive(){
+		if(Input.GetKeyDown(KeyCode.C)){
+			GameManager.player_animator.SetBool ("take", true);
+			currentTool =  GameObject.FindWithTag ("Tool");
+			if (currentTool.GetComponent<MeshRenderer> ().enabled) {
+				toolactive (false, currentTool);
+			} else {
+				toolactive (true, currentTool);
+			}
+		}
+		if(Input.GetKeyUp(KeyCode.C)){
+			GameManager.player_animator.SetBool ("take", false);
+		}
+	}
+	public void toolactive(bool a,GameObject b){
+		b.GetComponent<MeshRenderer> ().enabled = a;
+		b.GetComponent<BoxCollider> ().enabled = a;
+		b.GetComponent<MusicInstruments> ().enabled = a;
+	}
 
 }
