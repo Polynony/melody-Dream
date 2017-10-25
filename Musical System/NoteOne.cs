@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PathologicalGames;
-public class NoteOne : MusicNote {
+public class NoteOne : MusicNote{
 
 	void Start () {
 		

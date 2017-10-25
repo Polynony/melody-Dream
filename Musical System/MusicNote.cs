@@ -6,20 +6,14 @@ using DG.Tweening;
 //这是乐符的基类
 public class MusicNote : MonoBehaviour {
 
-	public int ID;
+	public string ID;
 	public float Hurts;//伤害值，实例化时乐器的m_basicHurt会赋给它，然后会在接触怪物的时候判断增加多少伤害值
 	protected byte Accidental;//变音记号
 	protected byte pf;//轻重音符号
 	public byte n_Type;   //实例化时，乐器的m_type会赋给这个值
 	public byte n_Tone;   //实例化时，乐器的m_Tyon会赋给这个值
 
-
 	public MusicNote(){
-	}
-
-	public MusicNote(int id,float hurts){
-		ID = id;
-		Hurts = hurts;
 	}
 
 	public void AddAccidental(){
@@ -63,18 +57,15 @@ public class MusicNote : MonoBehaviour {
 			transform.position += Vector3.up * 0.3f;
 			PoolManager.Pools ["MusicNotePool"].Despawn (gameObject.transform, 2f);
 		}
+	}
 
-	/*    this.transform.position = Vector3.Lerp (this.transform.position,targetpos,speed * Time.deltaTime);
-		  Quaternion targetRot = Quaternion.LookRotation (Targetpos.position - this.transform.position);
-		this.transform.rotation = Quaternion.Slerp (this.transform.rotation, targetRot, rotatespeed * Time.deltaTime);
-*/
+	//这是一个添加音符的方法，当玩家获得音符时调用这个方法
+	public void N_Add(GameObject Notes){
+		if(!PlayerCollection.noteCollection.ContainsKey(Notes.GetComponent<MusicNote>().ID)){
+			PlayerCollection.noteCollection.Add (Notes.GetComponent<MusicNote>().ID, Notes);
+		}
 	}
 
 
-}
-
-public interface INoteDerived{
-	void AttackHurt ();
-		//当乐符碰到怪物时进行碰撞判断并执行减血等功能
 }
 

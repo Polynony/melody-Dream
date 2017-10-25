@@ -20,17 +20,38 @@ public class MusicInstruments : MonoBehaviour {
 		m_Tone = tone;
 		m_basicHurt = basichurt;
 	}
-	//在乐符飞出之前给乐符的tybes and tones赋值
+	//音符实例化方法
 	public void InitializationNote(GameObject Note, Transform po) {
-		Note.GetComponent<MusicNote> ().n_Type = m_Type;
-		Note.GetComponent<MusicNote> ().n_Tone = m_Tone;
-		Note.GetComponent<MusicNote> ().Hurts = m_basicHurt;
 		if (!PoolManager.Pools.ContainsKey("MusicNotePool"))
 		{
-			Instantiate (Note);
+			PoolManager.Pools.Create ("MusicNotePool");
 		}
 			
 		PoolManager.Pools ["MusicNotePool"].Spawn (Note, po.position, Quaternion.identity);
+	}
+	//这是更换乐器的方法
+	public void SwitchTool(string number){
+		if(PlayerCollection.InstrumentsCollection.ContainsKey(number)){
+			GameObject player = GameObject.FindWithTag ("Player");
+			PlayerAction.currentTool =  GameObject.FindWithTag ("Tool");
+			Destroy (GameObject.FindWithTag ("Tool"));
+
+			GameObject nextTool = Instantiate (PlayerCollection.InstrumentsCollection [number], PlayerAction.currentTool.transform.position, Quaternion.identity);
+			nextTool.transform.SetParent (player.transform);
+			List<string> test = new List<string>(PlayerCollection.noteCollection.Keys);
+			for (int i = 0; i < test.Count; i++)
+			{
+				PlayerCollection.noteCollection [test [i]].GetComponent<MusicNote> ().n_Tone = nextTool.GetComponent<MusicInstruments> ().m_Tone;
+				PlayerCollection.noteCollection [test [i]].GetComponent<MusicNote> ().n_Type = nextTool.GetComponent<MusicInstruments> ().m_Type;
+				PlayerCollection.noteCollection [test [i]].GetComponent<MusicNote> ().Hurts = nextTool.GetComponent<MusicInstruments> ().m_basicHurt;
+			}
+		}
+	}
+	//这是一个添加乐器的方法，当玩家获得乐器时调用这个方法
+	public void T_Add(GameObject tools){
+		if(!PlayerCollection.InstrumentsCollection.ContainsKey(tools.GetComponent<MusicInstruments>().Name)){
+			PlayerCollection.InstrumentsCollection.Add (tools.GetComponent<MusicInstruments>().Name, tools);
+		}
 	}
 
 }
