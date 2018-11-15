@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-	public class SystemValue : MonoBehaviour {
+	public class SystemValue {
 	//乐器类型
 	public enum M_Type :byte {
 			Wind,
