@@ -12,8 +12,8 @@ public class PlayerData {
 [System.Serializable]
 public class PlayerCollection {
 
-	public static Dictionary<string, GameObject> noteCollection = new Dictionary<string, GameObject> ();
-	public static Dictionary<string, GameObject> InstrumentsCollection = new Dictionary<string, GameObject>();
+	public static Dictionary<string, GameObject> PlayerNoteCollection = new Dictionary<string, GameObject> ();
+	public static Dictionary<string, GameObject> PlayerInstrumentsCollection = new Dictionary<string, GameObject>();
 
 	public string[] KeysArray(Dictionary<string, GameObject> dic){
 		string[] keys = dic.Keys.ToArray();
