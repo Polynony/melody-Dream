@@ -4,4 +4,4 @@
 
 目前实现是PC端的操作方式
 
-使用了插件“DOTween”,“poolmanager”,“Mad Level Manager”
+使用了插件“DOTween”,“poolmanager”,“Mad Level Manager”,"savegamepro"
