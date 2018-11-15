@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MoleMole
-{
-	public abstract class AnimateView : BaseView 
-    {
+
+	public abstract class AnimateView : BaseView {
         [SerializeField]
         protected Animator _animator;
 
@@ -30,4 +28,4 @@ namespace MoleMole
         }
 
 	}
-}
+

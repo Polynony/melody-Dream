@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MoleMole
-{
-    public class UIManager
-    {
+
+    public class UIManager{
         public Dictionary<UIType, GameObject> _UIDict = new Dictionary<UIType,GameObject>();
 
         private Transform _canvas;
@@ -20,8 +18,7 @@ namespace MoleMole
         }
 
 		//游戏中单独出现的View会用此函数创建
-        public GameObject GetSingleUI(UIType uiType) 
-        {
+        public GameObject GetSingleUI(UIType uiType) {
             if (_UIDict.ContainsKey(uiType) == false || _UIDict[uiType] == null)
             {
                 GameObject go = GameObject.Instantiate(Resources.Load<GameObject>(uiType.Path)) as GameObject;
@@ -34,8 +31,7 @@ namespace MoleMole
         }
 
 		//游戏中单独出现的View会用此函数销毁
-        public void DestroySingleUI(UIType uiType)
-        {
+        public void DestroySingleUI(UIType uiType){
             if (!_UIDict.ContainsKey(uiType))
             {
                 return;
@@ -51,4 +47,3 @@ namespace MoleMole
             _UIDict.Remove(uiType);
         }
 	}
-}

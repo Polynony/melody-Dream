@@ -2,20 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 //View的跳转通过ContextManger管理
-namespace MoleMole
-{
-    public class ContextManager
-    {
+
+    public class ContextManager{
         private Stack<BaseContext> _contextStack = new Stack<BaseContext>();
 
-        private ContextManager()
-        {
+        private ContextManager(){
             //Push(new MainMenuContext());
         }
 
 		//进入下一个View
-        public void Push(BaseContext nextContext)
-        {
+        public void Push(BaseContext nextContext){
 
             if (_contextStack.Count != 0)
             {
@@ -30,8 +26,7 @@ namespace MoleMole
         }
 
 		//返回上一个界面
-        public void Pop()
-        {
+        public void Pop(){
             if (_contextStack.Count != 0)
             {
                 BaseContext curContext = _contextStack.Peek();
@@ -49,8 +44,7 @@ namespace MoleMole
             }
         }
 
-        public BaseContext PeekOrNull()
-        {
+        public BaseContext PeekOrNull(){
             if (_contextStack.Count != 0)
             {
                 return _contextStack.Peek();
@@ -58,4 +52,3 @@ namespace MoleMole
             return null;
         }
     }
-}

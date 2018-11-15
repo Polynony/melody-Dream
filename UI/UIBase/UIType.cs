@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MoleMole
-{
+
 	public class UIType {
 
         public string Path { get; private set; }
@@ -26,4 +25,3 @@ namespace MoleMole
         public static readonly UIType NextMenu = new UIType("View/NextMenuView");
         public static readonly UIType HighScore = new UIType("View/HighScoreView");
     }
-}

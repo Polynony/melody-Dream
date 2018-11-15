@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MoleMole
-{
+
 	public static class DictionaryExtension{
 
         /// <summary>
@@ -24,4 +23,3 @@ namespace MoleMole
         }
 
 	}
-}

@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MoleMole
-{
+
 	public abstract class BaseView : MonoBehaviour
     {
 		
@@ -32,4 +31,3 @@ namespace MoleMole
             Destroy(gameObject);
         }
 	}
-}

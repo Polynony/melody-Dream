@@ -3,20 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-/*
- *  Singleton
- *
- *	by Xuanyi
- */
 
-namespace MoleMole
-{
     public static class Singleton<T> where T : class
     {
-        /*	Instance	*/
+        //	Instance
         private static T _instance;
 
-        /* Static constructor	*/
+        // Static constructor
         static Singleton()
         {
             return;
@@ -29,7 +22,7 @@ namespace MoleMole
             return;
         }
 
-        /* Serve the single instance to callers	*/
+        //Serve the single instance to callers	
         public static T Instance
         {
             get
@@ -38,7 +31,7 @@ namespace MoleMole
             }
         }
 
-        /*	Destroy	*/
+        //	Destroy	
         public static void Destroy()
         {
 
@@ -47,4 +40,3 @@ namespace MoleMole
             return;
         }
     }
-}

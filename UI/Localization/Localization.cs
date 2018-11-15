@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 //本地化，不同语言的文字会存储在不同JSON文件中
-namespace MoleMole
-{
+
 	public class Localization 
     {
         /* Language Types */
@@ -37,4 +36,3 @@ namespace MoleMole
             return _languageNode[id];
         }*/
 	}
-}

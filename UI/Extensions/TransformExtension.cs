@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace MoleMole
-{
+
 	public static class TransformExtension 
     {
         public static void DestroyChildren(this Transform trans)
@@ -25,4 +24,3 @@ namespace MoleMole
             return childTrans;
         }
 	}
-}

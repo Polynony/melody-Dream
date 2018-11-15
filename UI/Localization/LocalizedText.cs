@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
  // 本地化组件
-namespace MoleMole
-{
+
     [RequireComponent(typeof(Text))]
     public class LocalizedText : MonoBehaviour
     {
@@ -36,4 +35,3 @@ namespace MoleMole
 
         }
     }
-}

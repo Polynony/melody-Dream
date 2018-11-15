@@ -9,8 +9,7 @@ using System.Collections.Generic;
  * 在使用GridScroller的时候，你同样要使用ScrollRect和GridLayout，GridScroller会从这两个组件中读取相应的属性并且运用到UI逻辑中。
  */
 
-namespace MoleMole
-{
+
     [RequireComponent(typeof(ScrollRect))]
 	public class GridScroller : MonoBehaviour {
 
@@ -261,4 +260,3 @@ namespace MoleMole
         #endregion
 
     }
-}
